@@ -7,3 +7,10 @@ GROUP BY YEAR(`date_of_birth`);
 SELECT SUM(`price`) AS `Totale`, `status` AS `stato_pagamento`
 FROM `pagamenti`
 GROUP BY `status`;
+
+3) Conta quante volte è stata prenotata ogni stanza.
+SELECT `stanze`.`room_number` AS `numero_di_stanza`, COUNT(`prenotazioni`.`id`) AS `#_prenotazioni` 
+FROM `stanze` 
+INNER JOIN `prenotazioni` 
+ON `prenotazioni`.`stanza_id`= `stanze`.`id` 
+GROUP BY `numero_di_stanza`;
